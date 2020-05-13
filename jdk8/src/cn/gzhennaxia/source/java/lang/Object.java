@@ -130,24 +130,24 @@ public class Object {
     public native int hashCode();
 
     /**
-     * Indicates whether some other object is "equal to" this one.
+     * Indicates(指示、表示) whether some other object is "equal to" this one.
      * <p>
-     * The {@code equals} method implements an equivalence relation
+     * The {@code equals} method implements an equivalence(n. 等效；等价) relation
      * on non-null object references:
      * <ul>
-     * <li>It is <i>reflexive</i>: for any non-null reference value
+     * <li>It is <i>reflexive(adj. 自反的; 网络: 自反性)</i>: for any non-null reference value
      *     {@code x}, {@code x.equals(x)} should return
      *     {@code true}.
-     * <li>It is <i>symmetric</i>: for any non-null reference values
+     * <li>It is <i>symmetric(adj. 对称的; 网络: 对称性)</i>: for any non-null reference values
      *     {@code x} and {@code y}, {@code x.equals(y)}
      *     should return {@code true} if and only if
      *     {@code y.equals(x)} returns {@code true}.
-     * <li>It is <i>transitive</i>: for any non-null reference values
+     * <li>It is <i>transitive(网络: 传递性；可传递的)</i>: for any non-null reference values
      *     {@code x}, {@code y}, and {@code z}, if
      *     {@code x.equals(y)} returns {@code true} and
      *     {@code y.equals(z)} returns {@code true}, then
      *     {@code x.equals(z)} should return {@code true}.
-     * <li>It is <i>consistent</i>: for any non-null reference values
+     * <li>It is <i>consistent(adj.	一致的；网络: 一致性)</i>: for any non-null reference values
      *     {@code x} and {@code y}, multiple invocations of
      *     {@code x.equals(y)} consistently return {@code true}
      *     or consistently return {@code false}, provided no
@@ -158,7 +158,7 @@ public class Object {
      * </ul>
      * <p>
      * The {@code equals} method for class {@code Object} implements
-     * the most discriminating possible equivalence relation on objects;
+     * the most discriminating(adj. 有辨别力的；网络: 有差别的) possible equivalence relation on objects;
      * that is, for any non-null reference values {@code x} and
      * {@code y}, this method returns {@code true} if and only
      * if {@code x} and {@code y} refer to the same object
