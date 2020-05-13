@@ -1,0 +1,3 @@
+[submodule "jdk11/src/cn/gzhennaxia/source/openjdk-jdk11u"]
+	path = jdk11/src/cn/gzhennaxia/source/openjdk-jdk11u
+	url = https://github.com/AdoptOpenJDK/openjdk-jdk11u.git
