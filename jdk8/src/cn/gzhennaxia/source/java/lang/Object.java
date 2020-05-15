@@ -180,9 +180,9 @@ public class Object {
     }
 
     /**
-     * Creates and returns a copy of this object.  The precise meaning
+     * Creates and returns a copy of this object.  The precise(确切的、精确的) meaning
      * of "copy" may depend on the class of the object. The general
-     * intent is that, for any object {@code x}, the expression:
+     * intent(n. 意图；目的；意向 adj. 专注的) is that, for any object {@code x}, the expression:
      * <blockquote>
      * <pre>
      * x.clone() != x</pre></blockquote>
@@ -195,9 +195,9 @@ public class Object {
      * <blockquote>
      * <pre>
      * x.clone().equals(x)</pre></blockquote>
-     * will be {@code true}, this is not an absolute requirement.
+     * will be {@code true}, this is not an absolute requirement(n.	必要条件).
      * <p>
-     * By convention, the returned object should be obtained by calling
+     * By convention(n.	习俗；惯例；协定), the returned object should be obtained by calling
      * {@code super.clone}.  If a class and all of its superclasses (except
      * {@code Object}) obey this convention, it will be the case that
      * {@code x.clone().getClass() == x.getClass()}.
@@ -206,10 +206,10 @@ public class Object {
      * of this object (which is being cloned).  To achieve this independence,
      * it may be necessary to modify one or more fields of the object returned
      * by {@code super.clone} before returning it.  Typically, this means
-     * copying any mutable objects that comprise the internal "deep structure"
+     * copying any mutable(adj.	可变的) objects that comprise the internal "deep structure"
      * of the object being cloned and replacing the references to these
      * objects with references to the copies.  If a class contains only
-     * primitive fields or references to immutable objects, then it is usually
+     * primitive(adj. 原始的；远古的) fields(基本类型) or references to immutable objects, then it is usually
      * the case that no fields in the object returned by {@code super.clone}
      * need to be modified.
      * <p>
@@ -217,19 +217,30 @@ public class Object {
      * specific cloning operation. First, if the class of this object does
      * not implement the interface {@code Cloneable}, then a
      * {@code CloneNotSupportedException} is thrown. Note that all arrays
-     * are considered to implement the interface {@code Cloneable} and that
+     * are considered to(被认为；被视为) implement the interface {@code Cloneable} and that
      * the return type of the {@code clone} method of an array type {@code T[]}
-     * is {@code T[]} where T is any reference or primitive type.
+     * is {@code T[]} where T is any reference or primitive type(基本类型).
      * Otherwise, this method creates a new instance of the class of this
-     * object and initializes all its fields with exactly the contents of
-     * the corresponding fields of this object, as if by assignment; the
+     * object and initializes all its fields with exactly(adv. 准确地；精确地 网络 正是；恰恰) the contents of
+     * the corresponding fields of this object, as if by assignment(赋值); the
      * contents of the fields are not themselves cloned. Thus, this method
-     * performs a "shallow copy" of this object, not a "deep copy" operation.
+     * performs(v. 执行；表现) a "shallow copy" of this object, not a "deep copy" operation.
+     * <p>
+     *    {@code Object}的方法{@code clone}执行特定的克隆操作。
+     *    首先，如果此对象的类未实现接口{@code Cloneable}，则将引发{@code CloneNotSupportedException}。
+     *    请注意，所有数组都被视为实现了接口{@code Cloneable}，
+     *    数组类型为{@code T []}的{@code clone}方法的返回类型为{@code T []}，
+     *    其中T为任何引用或基本类型。 否则，此方法将创建此对象的类的新实例，
+     *    并使用该对象相应字段的内容精确初始化其所有字段，就像通过赋值一样；
+     *    字段的内容本身不会被克隆。 因此，此方法执行此对象的“浅复制”，而不是“深复制”操作。
      * <p>
      * The class {@code Object} does not itself implement the interface
      * {@code Cloneable}, so calling the {@code clone} method on an object
      * whose class is {@code Object} will result in throwing an
      * exception at run time.
+     * <p>
+     * 类{@code Object}本身并不实现接口{@code Cloneable}，
+     * 因此在类为{@code Object}的对象上调用{@code clone}方法将导致在运行时引发异常。
      *
      * @return     a clone of this instance.
      * @throws  CloneNotSupportedException  if the object's class does not

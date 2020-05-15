@@ -13,12 +13,13 @@ import java.util.List;
  */
 public class ObjectTest {
 
-    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public static void main(String[] args) throws Exception {
 
 //        testGetClass();
 //        testGetClass1();
 
-        testHashCode();
+//        testHashCode();
+        testClone();
     }
 
     /**
@@ -142,5 +143,27 @@ public class ObjectTest {
         System.out.println(o3.hashCode()); // 96849
         System.out.println(o4.hashCode()); // 96849
         System.out.println(map1.get(o4)); // 95.27
+    }
+
+    /**
+     * 必须实现 Cloneable 接口，否则报 CloneNotSupportedException
+     *
+     * @author bli@skystartrade.com
+     * @date 2020-05-15 10:17
+     */
+    private static void testClone() throws CloneNotSupportedException {
+//        Test4 o1 = new Test4(); // Test4 没有实现 Cloneable 接口
+//        Object o2 = o1.clone();
+//        System.out.println(o2);// java.lang.CloneNotSupportedException
+
+        Test5 o3 = new Test5();
+        Object o4 = o3.clone();
+        System.out.println(o4);// cn.gzhennaxia.test.lang.object.Test5@7a7b0070
+    }
+
+    private static void testClone2() throws CloneNotSupportedException {
+        Test5 o = new Test5();
+        Object o1 = o.clone();
+        System.out.println(o1);// java.lang.CloneNotSupportedException
     }
 }
