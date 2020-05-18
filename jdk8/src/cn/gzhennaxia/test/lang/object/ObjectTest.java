@@ -161,6 +161,13 @@ public class ObjectTest {
         System.out.println(o4);// cn.gzhennaxia.test.lang.object.Test5@7a7b0070
     }
 
+    /**
+     * Object 中的 clone 方法并没有处理 CloneNotSupportedException 异常，
+     * 需要在子类中处理，负责运行时还是有可能报 CloneNotSupportedException 异常
+     *
+     * @author bli@skystartrade.com
+     * @date 2020-05-18 10:48
+     */
     private static void testClone2() throws CloneNotSupportedException {
         Test5 o = new Test5();
         Object o1 = o.clone();

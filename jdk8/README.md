@@ -6,3 +6,20 @@
 > 
 > 源码环境搭建: [Java源码盘起来！演示搭建JDK源码阅读环境，利用IDEA搭建Java源码 | BiliBili](https://www.bilibili.com/video/av98793734/)
 
+## 进度
+
+### java.lang
+
+#### Object
+
+- [] 
+- [x] 构造器
+
+- [] 
+
+HTML 特殊字符
+
+| 命名实体 | 符号 | 含义 |
+| ------ | --- | --- |
+| &trade; | ™	| 商标 |
+
