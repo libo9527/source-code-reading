@@ -1,6 +1,6 @@
 # JDK 源码阅读笔记
 
-> version: jdk11
+> version: jdk8
 > 
 > 源码下载: [openJDK之如何下载各个版本的openJDK源码 | OSCHINA](https://my.oschina.net/u/2518341/blog/1931088)
 > 
@@ -8,14 +8,21 @@
 
 ## 进度
 
+> [JDK源码阅读顺序](https://juejin.im/post/5de129e05188251324036b04) 
+
 ### java.lang
 
 #### Object
 
-- [] 
+- [x] 成员变量
 - [x] 构造器
+- [x] 方法
 
-- [] 
+#### String
+
+- [ ] 成员变量
+- [ ] 构造器
+- [ ] 方法
 
 HTML 特殊字符
 
