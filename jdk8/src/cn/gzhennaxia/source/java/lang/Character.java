@@ -520,7 +520,7 @@ class Character implements java.io.Serializable, Comparable<Character> {
      *
      * @since 1.5
      */
-    public static final char MIN_LOW_SURROGATE  = '\uDC00';
+    public static final char MIN_LOW_SURROGATE  = '\uDC00'; // 1011 1100 0000 0000
 
     /**
      * The maximum value of a
@@ -4671,7 +4671,7 @@ class Character implements java.io.Serializable, Comparable<Character> {
 
     /**
      * Determines whether the specified character (Unicode code point)
-     * is in the <a href="#BMP">Basic Multilingual Plane (BMP)</a>.
+     * is in the <a href="#BMP">Basic Multilingual Plane(基本多文种平面) (BMP)</a>.
      * Such code points can be represented using a single {@code char}.
      *
      * @param  codePoint the character (Unicode code point) to be tested

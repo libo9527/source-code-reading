@@ -12,14 +12,16 @@
 
 ### java.lang
 
-#### Object
+#### [Object](./src/cn/gzhennaxia/test/lang/object/README.md)
 
 - [x] 成员变量
 - [x] 构造器
 - [x] 方法
 
-#### String
+#### [String](./src/cn/gzhennaxia/test/lang/string/README.md)
 
+- [x] 类说明
+- [ ] 类声明
 - [ ] 成员变量
 - [ ] 构造器
 - [ ] 方法
@@ -28,5 +30,6 @@ HTML 特殊字符
 
 | 命名实体 | 符号 | 含义 |
 | ------ | --- | --- |
-| &trade; | ™	| 商标 |
+| `&trade;` | ™	| 商标 |
+| `&nbsp;`(Non-Breaking Space) | &nbsp; | 英文的空格字符，1个汉字占2个英文字符 |
 

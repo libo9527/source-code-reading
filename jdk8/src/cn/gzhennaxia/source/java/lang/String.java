@@ -45,7 +45,7 @@ import java.util.regex.PatternSyntaxException;
  * implemented as instances of this class.
  * <p>
  * Strings are constant; their values cannot be changed after they
- * are created. String buffers support mutable strings.
+ * are created. String buffers support mutable(可变的) strings.
  * Because String objects are immutable they can be shared. For example:
  * <blockquote><pre>
  *     String str = "abc";
@@ -64,15 +64,15 @@ import java.util.regex.PatternSyntaxException;
  *     String d = cde.substring(1, 2);
  * </pre></blockquote>
  * <p>
- * The class {@code String} includes methods for examining
+ * The class {@code String} includes methods for examining(v. 检查；考试)
  * individual characters of the sequence, for comparing strings, for
- * searching strings, for extracting substrings, and for creating a
+ * searching strings, for extracting(v.	提取) substrings, and for creating a
  * copy of a string with all characters translated to uppercase or to
- * lowercase. Case mapping is based on the Unicode Standard version
+ * lowercase. Case mapping(大小写映射) is based on the Unicode Standard version
  * specified by the {@link java.lang.Character Character} class.
  * <p>
  * The Java language provides special support for the string
- * concatenation operator (&nbsp;+&nbsp;), and for conversion of
+ * concatenation(n. 一系列相关联的事物（或事件）; 网络: 串联) operator(运算符) (&nbsp;+&nbsp;),and for conversion of
  * other objects to strings. String concatenation is implemented
  * through the {@code StringBuilder}(or {@code StringBuffer})
  * class and its {@code append} method.
@@ -80,15 +80,15 @@ import java.util.regex.PatternSyntaxException;
  * {@code toString}, defined by {@code Object} and
  * inherited by all classes in Java. For additional information on
  * string concatenation and conversion, see Gosling, Joy, and Steele,
- * <i>The Java Language Specification</i>.
+ * <i>The Java Language Specification(规范)</i>.
  *
  * <p> Unless otherwise noted, passing a <tt>null</tt> argument to a constructor
  * or method in this class will cause a {@link NullPointerException} to be
  * thrown.
  *
  * <p>A {@code String} represents a string in the UTF-16 format
- * in which <em>supplementary characters</em> are represented by <em>surrogate
- * pairs</em> (see the section <a href="Character.html#unicode">Unicode
+ * in which <em>supplementary(adj. 补充性的；外加的) characters</em> are represented by <em>surrogate(代理)
+ * pairs(一对；一双)</em> (see the section <a href="Character.html#unicode">Unicode
  * Character Representations</a> in the {@code Character} class for
  * more information).
  * Index values refer to {@code char} code units, so a supplementary
@@ -116,7 +116,17 @@ public final class String
     /** Cache the hash code for the string */
     private int hash; // Default to 0
 
-    /** use serialVersionUID from JDK 1.0.2 for interoperability */
+    /**
+     * Java 的序列化机制是通过在运行时判断类的 serialVersionUID 来验证版本一致性的。
+     * 在进行反序列化时，JVM 会把传来的字节流中的 serialVersionUID 与本地相应实体（类）的 serialVersionUID 进行比较，
+     * 如果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常 (InvalidCastException)。
+     *
+     * 作者：石先
+     * 链接：https://www.jianshu.com/p/799c4459b808
+     * 来源：简书
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+    /** use serialVersionUID from JDK 1.0.2 for interoperability(n.〔计〕互用性) */
     private static final long serialVersionUID = -6849794470754667710L;
 
     /**
@@ -142,7 +152,7 @@ public final class String
      * Initializes a newly created {@code String} object so that it represents
      * the same sequence of characters as the argument; in other words, the
      * newly created string is a copy of the argument string. Unless an
-     * explicit copy of {@code original} is needed, use of this constructor is
+     * explicit(显示的；显性的) copy of {@code original} is needed, use of this constructor is
      * unnecessary since Strings are immutable.
      *
      * @param  original
@@ -154,9 +164,9 @@ public final class String
     }
 
     /**
-     * Allocates a new {@code String} so that it represents the sequence of
+     * Allocates(v.	分配) a new {@code String} so that it represents the sequence of
      * characters currently contained in the character array argument. The
-     * contents of the character array are copied; subsequent modification of
+     * contents of the character array are copied; subsequent(adj. 随后的；之后的；网络. 并发的；其次的) modification of
      * the character array does not affect the newly created string.
      *
      * @param  value
@@ -200,6 +210,11 @@ public final class String
                 return;
             }
         }
+        // 目的：当从 offset 开始的 count 个字符，如果个数大于源 char 数组的长度，则报越界异常
+        // 实现：if(offset + count > value.length)
+        // 但是(offset + count)有可能大于 int 的最大值了，超过之后就成了负值了。
+        // (e.g. offset = count = -1>>>1 时，offset + count = -1)
+        // 所以采用减法代替加法来实现！
         // Note: offset or count might be near -1>>>1.
         if (offset > value.length - count) {
             throw new StringIndexOutOfBoundsException(offset + count);
@@ -255,7 +270,7 @@ public final class String
 
         final int end = offset + count;
 
-        // Pass 1: Compute precise size of char[]
+        // Pass 1: Compute precise(精确的) size of char[]
         int n = count;
         for (int i = offset; i < end; i++) {
             int c = codePoints[i];
