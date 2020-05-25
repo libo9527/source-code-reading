@@ -1,6 +1,8 @@
 # String
 
 > [JDK源码阅读-String](https://zhouyimian.github.io/2019/05/20/JDK%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB-String/)
+>
+> [Java 源码分析 — String 的设计](https://www.jianshu.com/p/799c4459b808)
 
 ### code unit & code point
 
