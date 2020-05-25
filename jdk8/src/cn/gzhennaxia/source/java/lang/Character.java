@@ -4663,8 +4663,14 @@ class Character implements java.io.Serializable, Comparable<Character> {
      * @since  1.5
      */
     public static boolean isValidCodePoint(int codePoint) {
-        // Optimized form of:
+        // Optimized(v.	持乐观态度；使最优化) form of:
         //     codePoint >= MIN_CODE_POINT && codePoint <= MAX_CODE_POINT
+        // MIN_CODE_POINT = 0x000000;
+        // MAX_CODE_POINT = 0X10FFFF;
+        // (MAX_CODE_POINT + 1) >>> 16 = 0X11 = 17
+        // codePoint >= MIN_CODE_POINT = 0，假设 codePoint < 0，则 codePoint 的最高位(符号位)是1
+        // 所以，codePoint >>> 16 一定 >= 0X1000 = 4096 > 17，也就是说如果 codePoint < 0，则
+        // codePoint >>> 16 一定大于 ((MAX_CODE_POINT + 1) >>> 16)
         int plane = codePoint >>> 16;
         return plane < ((MAX_CODE_POINT + 1) >>> 16);
     }
@@ -5046,7 +5052,7 @@ class Character implements java.io.Serializable, Comparable<Character> {
     }
 
     /**
-     * Returns the leading surrogate (a
+     * Returns the leading surrogate(前导代理) (a
      * <a href="http://www.unicode.org/glossary/#high_surrogate_code_unit">
      * high surrogate code unit</a>) of the
      * <a href="http://www.unicode.org/glossary/#surrogate_pair">
@@ -5070,12 +5076,14 @@ class Character implements java.io.Serializable, Comparable<Character> {
      * @since   1.7
      */
     public static char highSurrogate(int codePoint) {
+        // MIN_HIGH_SURROGATE = '\uD800';
+        // MIN_SUPPLEMENTARY_CODE_POINT = 0x010000;
         return (char) ((codePoint >>> 10)
             + (MIN_HIGH_SURROGATE - (MIN_SUPPLEMENTARY_CODE_POINT >>> 10)));
     }
 
     /**
-     * Returns the trailing surrogate (a
+     * Returns the trailing surrogate(后尾代理) (a
      * <a href="http://www.unicode.org/glossary/#low_surrogate_code_unit">
      * low surrogate code unit</a>) of the
      * <a href="http://www.unicode.org/glossary/#surrogate_pair">
@@ -5099,6 +5107,8 @@ class Character implements java.io.Serializable, Comparable<Character> {
      * @since   1.7
      */
     public static char lowSurrogate(int codePoint) {
+        // `& 0x3ff` 是为了取后 10 位
+        // MIN_LOW_SURROGATE: '/uDC00'
         return (char) ((codePoint & 0x3ff) + MIN_LOW_SURROGATE);
     }
 
@@ -5175,7 +5185,9 @@ class Character implements java.io.Serializable, Comparable<Character> {
 
     static void toSurrogates(int codePoint, char[] dst, int index) {
         // We write elements "backwards" to guarantee all-or-nothing
+        // 低位代理
         dst[index+1] = lowSurrogate(codePoint);
+        // 高位代理
         dst[index] = highSurrogate(codePoint);
     }
 

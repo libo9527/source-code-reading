@@ -21,9 +21,9 @@
 #### [String](./src/cn/gzhennaxia/test/lang/string/README.md)
 
 - [x] 类说明
-- [ ] 类声明
-- [ ] 成员变量
-- [ ] 构造器
+- [x] 类声明
+- [x] 成员变量
+- [x] 构造器
 - [ ] 方法
 
 HTML 特殊字符

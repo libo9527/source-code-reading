@@ -1,4 +1,9 @@
+# String
+
+> [JDK源码阅读-String](https://zhouyimian.github.io/2019/05/20/JDK%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB-String/)
+
 ### code unit & code point
+
 > [java里面code unit, code point怎么理解？](https://www.zhihu.com/question/35937819/answer/65194371)
 >
 > 在unicode的世界中，每种字符都有一个唯一的数字编号，这个数字编号就叫 unicode code point。目前code point的数值范围是0~0x10FFFF(需要 3 个字节)，
@@ -47,5 +52,5 @@ code unit: 码元
 
 其中的 Character.isBmpCodePoint(int codePoint) 用来判断 point 是否位于[基本多文种平面BMP](https://zh.wikipedia.org/wiki/Unicode%E5%AD%97%E7%AC%A6%E5%B9%B3%E9%9D%A2%E6%98%A0%E5%B0%84),
 位于BMP的直接转换为 char，超出BMP的转化为 Surrogate(也就是增补字符，`Character.toSurrogates(c, v, j++);`)，
-分为高低位两部分，低位即 codePoint 的后 10 位(`Character.lowSurrogate(int codePoint)`)，高位则是剩下高位运算后的结果(`Character.highSurrogate(int codePoint)`)
+减掉最小增补字符码位(0x010000)后，分为高低位两部分，低位即 (codePoint - minSupplementaryCodePoint) 的后 10 位(`Character.lowSurrogate(int codePoint)`)，高位则是剩下高 10 位(`Character.highSurrogate(int codePoint)`)
 

@@ -271,6 +271,7 @@ public final class String
         final int end = offset + count;
 
         // Pass 1: Compute precise(精确的) size of char[]
+        // 因为可能存在增补字符，一个增补字符占2个char，所以先计算出正确的char[]长度
         int n = count;
         for (int i = offset; i < end; i++) {
             int c = codePoints[i];
@@ -512,7 +513,7 @@ public final class String
      * The length of the new {@code String} is a function of the charset, and
      * hence may not be equal to the length of the byte array.
      *
-     * <p> This method always replaces malformed-input and unmappable-character
+     * <p> This method always replaces malformed-input(格式错误的输入) and unmappable-character
      * sequences with this charset's default replacement string.  The {@link
      * java.nio.charset.CharsetDecoder} class should be used when more control
      * over the decoding process is required.
@@ -602,7 +603,7 @@ public final class String
      * string builder are copied; subsequent modification of the string builder
      * does not affect the newly created string.
      *
-     * <p> This constructor is provided to ease migration to {@code
+     * <p> This constructor is provided to ease(v. 缓解；降低) migration(n.	迁移) to {@code
      * StringBuilder}. Obtaining a string from a string builder via the {@code
      * toString} method is likely to run faster and is generally preferred.
      *
