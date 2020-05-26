@@ -173,4 +173,26 @@ public class ObjectTest {
         Object o1 = o.clone();
         System.out.println(o1);// java.lang.CloneNotSupportedException
     }
+
+    /**
+     * 子类可以访问继承自父类的 protected 方法，
+     * 但无法访问父类实例的 protected 方法。
+     *
+     * @author bli@skystartrade.com
+     * @date 2020-05-26 10:46
+     */
+    private static void testClone3() throws CloneNotSupportedException {
+        ObjectTest ot = new ObjectTest();
+        ot.clone();
+
+        Object o = new Object();
+//        o.clone(); 编译错误
+    }
+    private void testClone4() throws CloneNotSupportedException {
+        ObjectTest ot = new ObjectTest();
+        ot.clone();
+
+        Object o = new Object();
+//        o.clone(); 编译错误
+    }
 }
