@@ -16,6 +16,7 @@ public class ObjectTest2 extends Test5 {
      */
     private void f() throws CloneNotSupportedException {
         clone();
+//        System.identityHashCode()
     }
 
     /**
